@@ -48,14 +48,16 @@ namespace orion_334
             dispatcherTimer.Start();
             Machine mc1 = new Machine() ;
             Machine mc2 = new Machine(); 
-            Machine mc3 = new Machine(); 
-            LogicServices logic = new LogicServices(mc1, mc2, mc3);
+            Machine mc3 = new Machine();
             ModbusServices mb = new ModbusServices(mc1, mc2, mc3);
+            LogicServices logic = new LogicServices(mc1, mc2, mc3);
+            
 
             logic.Subcribe();
             mb.Connect();
             mb.Subcribe();
             string[] ports = SerialPort.GetPortNames();
+            Console.WriteLine("START");
             //cmbComPort.DataSource = ports;
 
 
@@ -84,7 +86,6 @@ namespace orion_334
             Angle1 = Angle2 = Angle3 = Angle4 = Angle5 = Angle6 = Angle7 = Angle8 = Angle9 = Angle10 = Angle11 = num;
 
         }
-
         private void angle_Click1(object sender, RoutedEventArgs e)
         {
 
@@ -114,32 +115,27 @@ namespace orion_334
             //modbusClient.Disconnect();                                                //Disconnect from Server
 
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
-
         public TimeSpan SpinSpeed
         {
             get { return (TimeSpan)GetValue(SpinSpeedProperty); }
             set { SetValue(SpinSpeedProperty, value); }
         }
-
         public double Angle1
         {
             get { return (double)GetValue(AngleProperty1); }
             set { SetValue(AngleProperty1, value); }
 
         }
-
         public double Angle2
         {
             get { return (double)GetValue(AngleProperty2); }
             set { SetValue(AngleProperty2, value); }
 
         }
-
         public double Angle3
         {
             get { return (double)GetValue(AngleProperty3); }
@@ -194,17 +190,12 @@ namespace orion_334
             set { SetValue(AngleProperty11, value); }
 
         }
-
-
-
-
         public double xRpm1
         {
             get { return (double)GetValue(xRpmProperty1); }
             set { SetValue(xRpmProperty1, value); }
 
         }
-
         private void Bug_OnLoaded(object sender, RoutedEventArgs e)
         {
             DoubleAnimation animation = new DoubleAnimation
@@ -218,8 +209,6 @@ namespace orion_334
             second.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, animation);
 
         }
-
-
         static float convertxRPM(float xrpm)
         {
             float xRpm;
@@ -232,9 +221,6 @@ namespace orion_334
             yRpm = yrpm % 1000;
             return yRpm;
         }
-
-
-        // 
         static int convert1KToDegree(int k)
         {
 
@@ -262,7 +248,6 @@ namespace orion_334
             }
 
         }
-
         static float convert100ToDegree(float j)
         {
             float a;

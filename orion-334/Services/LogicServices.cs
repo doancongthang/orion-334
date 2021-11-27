@@ -40,13 +40,13 @@ namespace orion_334.Services
                 switch (stateMachine )  // KIEM TRA CAC DIEU KIEN
                 {
                     case StateMachine.MACHINE_OFF:
-                        if (Orionsystem.SW_power == true)
+                        if (Orionsystem.SW_power == false)
                         {
                             stateMachine = StateMachine.MACHINE_ON;
                         }    
                         break;
                     case StateMachine.MACHINE_ON:
-                        if (Orionsystem.SW_power == false)
+                        if (Orionsystem.SW_power == true)
                             stateMachine = StateMachine.MACHINE_OFF;
                         if (Orionsystem.btn_checklight == true)
                             stateMachine = StateMachine.TEST;

@@ -22,9 +22,9 @@ namespace orion_334.Services
             mc2 = _mc2;
             mc3 = _mc3;
             modbusClient = new EasyModbus.ModbusClient();
-            modbusClient.SerialPort = "COM10";
+            modbusClient.SerialPort = "COM3";
             modbusClient.Baudrate = 9600;
-            modbusClient.UnitIdentifier = 1;
+            //modbusClient.UnitIdentifier = 1;
             modbusClient.ReceiveDataChanged += new ModbusClient.ReceiveDataChangedHandler(UpdateReceiveData);
             //modbusClient.SendDataChanged += new EasyModbus.ModbusClient.SendDataChangedHandler(UpdateSendData);
             //modbusClient.ConnectedChanged += new EasyModbus.ModbusClient.ConnectedChangedHandler(UpdateConnectedChanged);
