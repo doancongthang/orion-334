@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>orion_334</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="5.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\gauge-1.png" />
+    <Resource Include="Img\gauge-2.png" />
+    <Resource Include="Img\gauge-3.png" />
+    <Resource Include="Img\gauge-4.png" />
+  </ItemGroup>
+</Project>
