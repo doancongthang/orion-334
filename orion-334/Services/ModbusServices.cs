@@ -10,7 +10,7 @@ namespace orion_334.Services
 {
     class ModbusServices
     {
-        private ModbusClient modbusClient;
+        public ModbusClient modbusClient;
         string receiveData = null;
         int boardId = 1;
         private Machine mc1;
@@ -22,14 +22,13 @@ namespace orion_334.Services
             mc2 = _mc2;
             mc3 = _mc3;
             modbusClient = new EasyModbus.ModbusClient();
-            modbusClient.SerialPort = "COM3";
-            modbusClient.Baudrate = 9600;
-            //modbusClient.UnitIdentifier = 1;
+            modbusClient.SerialPort = "COM5";
+            modbusClient.Baudrate = 115200;
+            modbusClient.UnitIdentifier = 1;
             modbusClient.ReceiveDataChanged += new ModbusClient.ReceiveDataChangedHandler(UpdateReceiveData);
             //modbusClient.SendDataChanged += new EasyModbus.ModbusClient.SendDataChangedHandler(UpdateSendData);
             //modbusClient.ConnectedChanged += new EasyModbus.ModbusClient.ConnectedChangedHandler(UpdateConnectedChanged);
             modbusClient.LogFileFilename = "logFiletxt.txt";
-
         }
 
         private async void loopUpdateModbus()
@@ -116,12 +115,10 @@ namespace orion_334.Services
                                 modbusClient.UnitIdentifier = 3;
                                 bool[] result3 = modbusClient.ReadDiscreteInputs(0, 30);
 
-
                                 break;
                         }
 
                         Console.WriteLine("Send");
-
                     }
                     catch (Exception exc)
                     {
@@ -132,7 +129,7 @@ namespace orion_334.Services
                 boardId++;
                 if (boardId > 3) boardId = 1;
                 await Task.Delay(100);
-            }
+            }   
         }
 
         private async void loopUpdateCoilsModbus()
@@ -270,8 +267,12 @@ namespace orion_334.Services
 
         public void Subcribe()
         {
-            Task control = Task.Run(() => loopUpdateModbus());              // Khởi chạy loop services
-            Task controlLight = Task.Run(() => loopUpdateCoilsModbus());    // Khởi chạy loop services
+            //Task control = Task.Run(() => loopUpdateModbus());              // Khởi chạy loop services
+            //Task controlLight = Task.Run(() => loopUpdateCoilsModbus());    // Khởi chạy loop services
+            Task ct1 = new Task(() => loopUpdateModbus());
+            Task ct2 = new Task(() => loopUpdateCoilsModbus());
+            ct1.Start();
+            ct2.Start();
         }
 
         public void Connect()

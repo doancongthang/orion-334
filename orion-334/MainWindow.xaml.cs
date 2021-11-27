@@ -24,6 +24,7 @@ namespace orion_334
     /// </summary>
     public partial class MainWindow : Window
     {
+        public delegate void ThreadStart();
         public static readonly DependencyProperty SpinSpeedProperty = DependencyProperty.Register("SpinSpeed", typeof(TimeSpan), typeof(MainWindow), new PropertyMetadata(default(TimeSpan)));
         public static readonly DependencyProperty AngleProperty1 = DependencyProperty.Register("Angle1", typeof(double), typeof(MainWindow), new PropertyMetadata(default(double))); public static readonly DependencyProperty AngleProperty2 = DependencyProperty.Register("Angle2", typeof(double), typeof(MainWindow), new PropertyMetadata(default(double)));
         public static readonly DependencyProperty AngleProperty3 = DependencyProperty.Register("Angle3", typeof(double), typeof(MainWindow), new PropertyMetadata(default(double))); public static readonly DependencyProperty AngleProperty4 = DependencyProperty.Register("Angle4", typeof(double), typeof(MainWindow), new PropertyMetadata(default(double)));
@@ -41,7 +42,7 @@ namespace orion_334
             Angle1 = Angle2 = Angle3 = Angle4 = Angle5 = Angle6 = Angle7 = Angle8 = Angle9 = Angle10 = Angle11 = 270;
 
               
-           // dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            //dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1000);
             SpinSpeed = TimeSpan.FromMilliseconds(200);
 
@@ -56,7 +57,7 @@ namespace orion_334
             logic.Subcribe();
             mb.Connect();
             mb.Subcribe();
-            string[] ports = SerialPort.GetPortNames();
+            //string[] ports = SerialPort.GetPortNames();
             Console.WriteLine("START");
             //cmbComPort.DataSource = ports;
 
