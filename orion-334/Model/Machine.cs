@@ -256,18 +256,18 @@ namespace orion_334.Model
     {
         #region Maincontrol
         // Tong so 11 bien
-        public static bool SW_power;           //SW Power
+        public static bool SW_power;            //SW Power
 
-        public static bool SW1;                //SW1 Switch mode Oil, Water
-        public static bool SW2;                //SW2 Switch mode on Energy
-        public static bool SW3;                //SW3 Switch mode Pump
+        public static bool SW1;                 //SW1 Switch mode Oil, Water
+        public static bool SW2;                 //SW2 Switch mode on Energy
+        public static bool SW3;                 //SW3 Switch mode Pump
 
-        public static bool btn_checklight;     //Bt check all light
-        public static bool btn_oilafterfil;    //Bt check oil after fil
+        public static bool btn_checklight;      //Bt check all light
 
-        public static bool rswleft;            //Rotate SW position left
-        public static bool rswright;           //Rotate SW position right
-        public static bool rswmid;             //Rotate SW position middle
+        public static bool rswleft;             //Rotate SW position left
+        public static bool rswright;            //Rotate SW position right
+        public static bool rswmid;              //Rotate SW position middle
+        public static bool sw_oilafterfil;      //Bt check oil after fil
 
         public static bool btn_callbehindcabin;    //Bt call KMO   Gọi khoang máy sau
         public static bool btn_callheadcabin;      //Bt call HMO   Gọi khoang máy trước

@@ -46,26 +46,71 @@ namespace orion_334.Services
                             case 1:
                                 modbusClient.UnitIdentifier = 1;
                                 bool[] result = modbusClient.ReadDiscreteInputs(0, 30);
-                                Orionsystem.SW_power = result[0];
-
-
-
-
-                                Orionsystem.SW1 = result[1];
-                                Orionsystem.SW2 = result[2];
-                                Orionsystem.SW3 = result[3];
-                                Orionsystem.btn_checklight = result[4];
-                                Orionsystem.btn_oilafterfil = result[5];
+                                //                              = result[0];
+                                //                              = result[1];
+                                //                              = result[2];
+                                //                              = result[3];
+                                mc1.sw_protect                  = result[4];
+                                mc2.sw_protect                  = result[5];
+                                Orionsystem.btn_wheelhouse      = result[6];
+                                Orionsystem.SW1                 = result[7];
+                                mc3.sw_protect                  = result[8];
+                                Orionsystem.btn_callbehindcabin = result[9];
+                                Orionsystem.SW2                 = result[10];
+                                Orionsystem.btn_callheadcabin   = result[11];
+                                Orionsystem.SW3                 = result[12];
+                                Orionsystem.rswright            = result[13];
+                                Orionsystem.SW_power            = result[14];
+                                mc2.btn_burn                    = result[15];
+                                //                              = result[16];
+                                Orionsystem.rswmid              = result[17];
+                                Orionsystem.sw_oilafterfil      = result[18];
+                                mc1.btn_burn                    = result[19];
+                                //                              = result[20];
+                                //                              = result[21];
+                                //                              = result[22];
+                                mc1.sw_pumpout                  = result[23];
+                                mc3.sw_zero_fuel_supply         = result[24];
+                                mc3.btn_on_preminary_pump       = result[25];
+                                mc1.btn_start                   = result[26];
+                                mc3.btn_down                    = result[26];
+                                mc3.btn_off_preminary_pump      = result[28];
+                                mc1.btn_on_hig_airpressure      = result[29];
+                                //                              = result[30];
                                 break;
                             case 2:
                                 modbusClient.UnitIdentifier = 2;
                                 bool[] result2 = modbusClient.ReadDiscreteInputs(0, 30);
-
-
-
-                                Orionsystem.rswleft = result2[0];
-                                Orionsystem.rswright = result2[1];
-                                Orionsystem.rswmid = result2[2];
+                                mc2.btn_estop                   = result2[0];
+                                mc1.sw_zero_fuel_supply         = result2[1];
+                                mc1.btn_estop                   = result2[2];
+                                mc3.btn_estop                   = result2[3];
+                                mc2.sw_pumpout                  = result2[4];
+                                mc3.sw_pumpout                  = result2[5];
+                                Orionsystem.btn_checklight      = result2[6];
+                                mc3.btn_up                      = result2[7];
+                                mc2.btn_up                      = result2[8];
+                                mc2.sw_zero_fuel_supply         = result2[9];
+                                mc1.btn_down                    = result2[10];
+                                mc2.btn_on_hig_airpressure      = result2[11];
+                                mc1.sw_start_auto               = result2[12];
+                                mc1.btn_down                    = result2[13];
+                                mc2.sw_start_auto               = result2[14];
+                                mc3.sw_start_auto               = result2[15];
+                                mc2.btn_down                    = result2[16];
+                                mc3.btn_down                    = result2[17];
+                                mc2.btn_down                    = result2[18];
+                                mc1.btn_up                      = result2[19];
+                                mc1.btn_on_preminary_pump       = result2[20];
+                                mc2.btn_on_preminary_pump       = result2[21];
+                                mc3.btn_start                   = result2[22];
+                                mc1.btn_on_low_airpressure      = result2[23];
+                                mc2.btn_start                   = result2[24];
+                                mc2.btn_off_preminary_pump      = result2[25];
+                                mc3.btn_on_hig_airpressure      = result2[26];
+                                mc2.btn_off_preminary_pump      = result2[28];
+                                mc3.btn_on_low_airpressure      = result2[29];
+                                //                              = result2[30];
                                 break;
                             case 3:
                                 modbusClient.UnitIdentifier = 3;
@@ -104,16 +149,16 @@ namespace orion_334.Services
                                 modbusClient.UnitIdentifier = 1;
                                 bool[] serverResponse1 = modbusClient.ReadCoils(0, 30);
 
-                                modbusClient.WriteSingleCoil(0,  mc1.sig_oil_supply);
-                                modbusClient.WriteSingleCoil(1,  mc1.sig_vvd);
-                                modbusClient.WriteSingleCoil(2,  mc1.sig_vnd);
-                                modbusClient.WriteSingleCoil(3,  mc1.sig_mpa);
-                                modbusClient.WriteSingleCoil(4,  mc1.sig_mpa);
-                                modbusClient.WriteSingleCoil(5,  mc1.sig_vvd);
-                                modbusClient.WriteSingleCoil(6,  mc1.sig_vvd);
-                                modbusClient.WriteSingleCoil(7,  mc1.sig_oil_supply);
-                                modbusClient.WriteSingleCoil(8,  mc1.sig_upper_oil);
-                                modbusClient.WriteSingleCoil(9,  mc1.sig_starting_forbidden);
+                                modbusClient.WriteSingleCoil(0, mc1.sig_oil_supply);
+                                modbusClient.WriteSingleCoil(1, mc1.sig_vvd);
+                                modbusClient.WriteSingleCoil(2, mc1.sig_vnd);
+                                modbusClient.WriteSingleCoil(3, mc1.sig_mpa);
+                                modbusClient.WriteSingleCoil(4, mc1.sig_mpa);
+                                modbusClient.WriteSingleCoil(5, mc1.sig_vvd);
+                                modbusClient.WriteSingleCoil(6, mc1.sig_vvd);
+                                modbusClient.WriteSingleCoil(7, mc1.sig_oil_supply);
+                                modbusClient.WriteSingleCoil(8, mc1.sig_upper_oil);
+                                modbusClient.WriteSingleCoil(9, mc1.sig_starting_forbidden);
                                 modbusClient.WriteSingleCoil(10, mc1.sig_upper_oil);
                                 modbusClient.WriteSingleCoil(11, mc1.sig_starting_forbidden);
                                 modbusClient.WriteSingleCoil(12, mc1.sig_count_rotate);
