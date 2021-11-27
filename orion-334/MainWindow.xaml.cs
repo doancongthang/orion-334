@@ -61,7 +61,6 @@ namespace orion_334
             Console.WriteLine("START");
             //cmbComPort.DataSource = ports;
 
-
             //modBusTCP_Connect();
             /*
             if (modbusClient.Connected) // Modbus connected
